@@ -20,6 +20,6 @@ Use: https://restcountries.eu/rest/v2/all to get all the countries
 ## Let's Get Started:
 1. Clone this repository 
 2. If you don't have node installed download it here: https://nodejs.org/en/
-3. Go to the root directory of the repository in your command line and run npm i or npm install
-4. Run npm start, and it should load a basic rendered page in your default browsergit
+3. Go to the root directory of the repository in your command line and run ```yarn```, ```npm i``` or ```npm install```
+4. Run ```yarn start``` or ```npm start```, and it should load a basic rendered page in your default browsergit
 5. You're ready to code!
