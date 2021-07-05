@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 export const CountryCardWrapper = styled(Link)`
   flex: 1;
-  flex-basis: 15%;
+  flex-basis: 25%;
   padding: 15px;
   margin: 15px;
   flex-direction: column;
@@ -19,6 +19,7 @@ export const FlagWrapper = styled.div`
   flex: 1;
   width: 100%;
 `;
+
 export const Flag = styled.img`
   width: 100%;
 `;

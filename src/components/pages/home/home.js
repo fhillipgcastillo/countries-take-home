@@ -1,12 +1,13 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getCountries } from '../../../services/api';
 import { setCountries } from '../../../redux/countries/countryActions';
 import CountryCard from '../../molecules/CountryCard';
-import { CountryContainer, Title } from './homeStyled';
+import { CountryContainer, Title } from './home.style';
+import SearchBar from '../../molecules/SearchBar/SearchBar';
 
 const Home = () => {
-  // const [countries, setCounties] = useState([]);
+  const [searchCountry, setSearchCountry ] = useState(null);
   const countries = useSelector(state => state.country.countries);
   const dispatch = useDispatch();
 
@@ -15,13 +16,10 @@ const Home = () => {
       .then(res => dispatch(setCountries(res)));
   }, []);
 
-  useEffect(()=> {
-    console.log(countries);
-  }, countries);
-
   return (
     <div>
-      <Title>Countries</Title>
+      <Title>Discovering the World</Title>
+      <SearchBar onChange={e => setSearchCountry(e.target.value)}/>
       <CountryContainer>
         {
           countries && countries.map(country => <CountryCard key={country.name} country={country} />)
