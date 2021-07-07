@@ -12,6 +12,8 @@ export const CountryCardWrapper = styled(Link)`
   box-shadow: -3px 4px 13px 3px #83759e52;
   border-radius: 10px;
   text-decoration: none;
+  min-width: 240px;
+  max-width: 440px;
 `;
 
 export const FlagWrapper = styled.div`

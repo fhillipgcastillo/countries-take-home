@@ -7,22 +7,33 @@ import { CountryContainer, Title } from './home.style';
 import SearchBar from '../../molecules/SearchBar/SearchBar';
 
 const Home = () => {
-  // const [countries, setCounties] = useState([]);
-  const [searchCountry, setSearchCountry ] = useState(null);
+  const [searchCountry, setSearchCountry ] = useState("");
   const dispatch = useDispatch();
   const countries = useSelector(state => state.country && state.country.countries);
+  const [filteredCountries, setFilteredCountries] = useState(countries);
 
   useEffect(() => {
     getCountries()
       .then(res => dispatch(setCountries(res)));
-  }, [countries]);
+  }, []);
+
+  useEffect(() => {
+    if(searchCountry) {
+      setFilteredCountries(countries && countries.filter(country => country.name.toLocaleLowerCase().includes(searchCountry.toLocaleLowerCase())))
+    } else {
+      setFilteredCountries(countries);
+    }
+  }, [countries, searchCountry]);
+
+  const handleSearch = e => setSearchCountry(e.target.value);
+  const handleClearSearch = ()=> setSearchCountry("");
 
   return (
     <div>
-      <SearchBar onChange={e => setSearchCountry(e.target.value)}/>
+      <SearchBar search={searchCountry} onChange={handleSearch} onClear={handleClearSearch} />
       <CountryContainer>
         {
-          countries && countries.map(country => <CountryCard key={country.name} country={country} />)
+          filteredCountries && filteredCountries.map(country => <CountryCard key={country.name} country={country} />)
         }
       </CountryContainer>
     </div>
