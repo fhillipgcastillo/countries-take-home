@@ -7,18 +7,18 @@ import { CountryContainer, Title } from './home.style';
 import SearchBar from '../../molecules/SearchBar/SearchBar';
 
 const Home = () => {
+  // const [countries, setCounties] = useState([]);
   const [searchCountry, setSearchCountry ] = useState(null);
-  const countries = useSelector(state => state.country.countries);
   const dispatch = useDispatch();
+  const countries = useSelector(state => state.country && state.country.countries);
 
   useEffect(() => {
     getCountries()
       .then(res => dispatch(setCountries(res)));
-  }, []);
+  }, [countries]);
 
   return (
     <div>
-      <Title>Discovering the World</Title>
       <SearchBar onChange={e => setSearchCountry(e.target.value)}/>
       <CountryContainer>
         {

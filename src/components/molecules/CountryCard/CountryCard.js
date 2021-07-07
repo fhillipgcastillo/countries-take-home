@@ -8,7 +8,7 @@ import {
 
 const CountryCard = ({ country }) => {
   return (
-    <CountryCardWrapper to={`/coutry/${country.name}`}>
+    <CountryCardWrapper to={`/country/${country.name.replace(" ", "_")}`}>
       <FlagWrapper>
         <Flag src={country.flag} />
       </FlagWrapper>

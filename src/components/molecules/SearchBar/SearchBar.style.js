@@ -25,8 +25,6 @@ export const SearchInput = styled.input`
   }
 `;
 
-export const SearchIcon = styled.i`
-  &:before {
-    content:"\\1F50E";
-  }
+export const SearchIcon = styled.span`
+  
 `;

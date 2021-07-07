@@ -4,7 +4,7 @@ import { SearchBarWrapper, SearchInput, SearchIcon } from "./SearchBar.style";
 const SearchBar = ({searchCountry, onChange}) => {
   return (
     <SearchBarWrapper>
-      <SearchIcon />
+      <SearchIcon>Search</SearchIcon>
       <SearchInput
         value={searchCountry}
         onChange={onChange}
